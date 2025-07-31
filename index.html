@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptitude Test - Badri's University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <header class="main-header">
+                <img src="https://via.placeholder.com/90/FFFFFF/003366?text=BU" alt="University Logo" class="logo">
+                <h1>Badri's University</h1>
+                <p>Aptitude Assessment Portal</p>
+            </header>
+            <div class="form-group">
+                <label for="student-name">Enter Your Full Name to Begin</label>
+                <input type="text" id="student-name" placeholder="e.g., Jane Smith">
+            </div>
+            <button id="login-btn" class="btn btn-primary">Login & Proceed to Instructions</button>
+        </div>
+    </div>
+
+    <!-- Instructions Screen -->
+    <div id="instructions-screen" class="screen">
+        <div class="content-wrapper">
+            <header class="main-header">
+                <h1>Exam Instructions & System Check</h1>
+            </header>
+            <div class="instructions-list">
+                <h3>General Instructions:</h3>
+                <ul>
+                    <li>The duration of the aptitude test is <strong>30 minutes</strong>.</li>
+                    <li>This test consists of <strong>50 multiple-choice questions</strong>.</li>
+                    <li>Ensure you have a stable internet connection.</li>
+                    <li>The exam will be proctored using your webcam.</li>
+                </ul>
+                <h3>System Check:</h3>
+                <p id="camera-status">Initializing camera...</p>
+            </div>
+            <button id="start-exam-btn" class="btn btn-primary" disabled>Start Test</button>
+        </div>
+    </div>
+
+    <!-- Test Screen -->
+    <div id="test-screen" class="screen">
+        <header class="test-header">
+            <div class="logo-area">
+                <img src="https://via.placeholder.com/50/FFFFFF/003366?text=BU" alt="Logo" class="header-logo">
+                <h2>Badri's University</h2>
+            </div>
+            <div class="test-controls">
+                <div class="timer-box">
+                    <span id="timer-icon">🕒</span>
+                    <span id="timer">30:00</span>
+                </div>
+                <button id="end-exam-btn" class="btn btn-danger">End Exam</button>
+            </div>
+        </header>
+        <div class="test-body">
+            <div class="main-content">
+                <div class="question-area">
+                    <h3 id="question-number-title">Question 1 of 50</h3>
+                    <p id="question">Question text will load here.</p>
+                </div>
+                <div id="answer-buttons" class="answer-grid"></div>
+                <div class="navigation-controls">
+                    <button id="prev-btn" class="btn btn-secondary">Previous</button>
+                    <button id="next-btn" class="btn btn-secondary">Next</button>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-widget">
+                    <h4>Live Proctoring</h4>
+                    <video id="camera-feed" autoplay playsinline muted></video>
+                </div>
+                <div class="sidebar-widget">
+                    <h4>Question Palette</h4>
+                    <div id="question-palette" class="palette-grid"></div>
+                    <div class="palette-legend">
+                        <span><i class="legend-box answered"></i> Answered</span>
+                        <span><i class="legend-box unanswered"></i> Not Answered</span>
+                        <span><i class="legend-box current"></i> Current</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="content-wrapper">
+            <header class="main-header">
+                <h1>Aptitude Test Results</h1>
+            </header>
+            <p><strong>Candidate:</strong> <span id="result-name"></span></p>
+            <hr>
+            <h3>Your Final Score:</h3>
+            <p class="final-score"><span id="score">0</span> / <span id="total-questions">0</span></p>
+            <p id="feedback-text"></p>
+            <button id="restart-btn" class="btn btn-primary">Return to Login</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
